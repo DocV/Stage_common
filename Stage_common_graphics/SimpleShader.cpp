@@ -104,23 +104,7 @@ void SimpleShader::draw(const Model& model, const Camera& cam, glm::mat4& modelM
 	glUseProgram(program);
 	glUniformMatrix4fv(matrixID, 1, GL_FALSE, &MVP[0][0]);
 
-	/*if (!glIsBuffer(model.getVertices()))
-	std::cout << "false" << std::endl;*/
-
-	/*GLuint vertexbuffer;
-	glGenBuffers(1, &vertexbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
-
-	GLuint colorbuffer;
-	glGenBuffers(1, &colorbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(g_color_buffer_data), g_color_buffer_data, GL_STATIC_DRAW);*/
-
-	//std::cout << vertexbuffer << std::endl;
-
 	glEnableVertexAttribArray(0);
-	//glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, model.getVertices());
 	glVertexAttribPointer(
 		0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
@@ -143,11 +127,6 @@ void SimpleShader::draw(const Model& model, const Camera& cam, glm::mat4& modelM
 		);
 
 	glDrawArrays(GL_TRIANGLES, 0, model.getVertexCount() * 3);
-
-	//std::cout << "buffers" << vertexbuffer << " " << model.getVertices() << " " << colorbuffer << " " << model.getColors() << std::endl;
-
-	//glDeleteBuffers(sizeof(g_vertex_buffer_data), &vertexbuffer);
-	//glDeleteBuffers(sizeof(g_color_buffer_data), &colorbuffer);
 
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);

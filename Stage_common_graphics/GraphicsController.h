@@ -30,6 +30,7 @@ namespace stage_common{
 		}*/
 		void draw(const Camera& cam);
 		static GraphicsController* getGlobalController();
+		bool stopLoop = false;
 	private:
 		static GraphicsController* globalController;
 		GLFWwindow* window;

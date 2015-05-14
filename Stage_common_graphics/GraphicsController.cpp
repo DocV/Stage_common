@@ -7,7 +7,7 @@ using namespace stage_common;
 GraphicsController* GraphicsController::globalController = nullptr;
 
 GraphicsController::GraphicsController(std::string& windowName, int xres, int yres){
-	std::cout << "starting gc\n";
+	std::cout << "starting gc!\n";
 	if (globalController != nullptr){
 		std::cout << "gc already set\n";
 		return; 
@@ -48,6 +48,7 @@ GraphicsController::GraphicsController(std::string& windowName, int xres, int yr
 GraphicsController::~GraphicsController(){
 	std::cout << "gc stopping\n";
 	globalController = nullptr;
+	glfwDestroyWindow(window);
 	glfwTerminate();
 }
 
@@ -75,4 +76,5 @@ void GraphicsController::draw(const Camera& cam){
 	drawCount = 0;
 	glfwSwapBuffers(window);
 	glfwPollEvents();
+	if (glfwWindowShouldClose(window)) stopLoop = true;
 }
