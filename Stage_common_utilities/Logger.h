@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <string>
 
 namespace stage_common{
 	class Logger{
@@ -10,12 +11,12 @@ namespace stage_common{
 		Logger(std::ostream& standard, std::ostream& error) : stdLog(standard), errLog(error){
 		}
 
-		void Log(char* msg){
-			stdLog << *msg << std::endl;
+		void Log(std::string msg){
+			stdLog << msg << std::endl;
 		}
 
-		void LogError(char* msg){
-			errLog << *msg << std::endl;
+		void LogError(std::string msg){
+			errLog << msg << std::endl;
 		}
 	private:
 		std::ostream& stdLog;
