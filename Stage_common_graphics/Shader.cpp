@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "Shader.h"
 #include <string>
 #include <fstream>
@@ -7,6 +7,12 @@
 
 using namespace stage_common;
 
+/** Apufunktio, joka lataa ja kääntää sävytinohjelman
+Julkaistu alun perin osoitteessa http://www.opengl-tutorial.org/download/ WTFPL2-lisenssin alaisuudessa (http://www.wtfpl.net/)
+@param vertex_file_path		Osoite verteksisävyttimen tiedostoon
+@param fragment_file_path	Osoite pikselisävyttimen tiedostoon
+@returns					GLuint, joka ilmaisee minne OpenGL latasi käännetyn sävytinohjelman
+*/
 GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path){
 	// Create the shaders
 	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);

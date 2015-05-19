@@ -1,14 +1,13 @@
 #include "stdafx.h"
 #include "Model.h"
-#include "Utilities.h"
 #include "Shader.h"
 #include <iostream>
 
 
 using namespace stage_common;
 
-Model::Model(std::vector<glm::vec3>& vertexData, unsigned int vertexCount, std::vector<glm::vec3>& colorData,
-	Shader* shader): vertexCount(vertexCount), shader(shader){
+Model::Model(std::vector<glm::vec3>& vertexData, std::vector<glm::vec3>& colorData,
+	Shader* shader): vertexCount(vertexData.size()), shader(shader){
 	glGenBuffers(1, &vertices);
 	glBindBuffer(GL_ARRAY_BUFFER, vertices);
 	glBufferData(GL_ARRAY_BUFFER, vertexData.size() * sizeof(glm::vec3), &vertexData[0], GL_STATIC_DRAW);
