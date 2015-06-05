@@ -43,7 +43,7 @@ void SimpleShader::draw(const Model& model, const Camera& cam, glm::mat4& modelM
 		(void*)0                          
 	);
 	//Piirretään polygonit
-	glDrawArrays(GL_TRIANGLES, 0, model.getVertexCount() * 3);
+	glDrawArrays(GL_TRIANGLES, 0, model.getVertexCount());
 
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
