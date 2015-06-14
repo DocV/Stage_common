@@ -10,6 +10,10 @@ namespace stage_common{
 
 	class Collider{
 	public:
+		glm::vec3 center;
+
+		Collider(glm::vec3 center) : center(center){}
+
 		virtual bool checkCollision(const Collider& other) const = 0;
 		virtual bool checkCollision(const SphereCollider& other) const = 0;
 		virtual bool checkCollision(const AABBCollider& other) const = 0;

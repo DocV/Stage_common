@@ -12,15 +12,16 @@ namespace stage_common{
 	class SphereCollider : public Collider{
 	public:
 		float radius;
-		glm::vec3 center;
 
-		bool checkCollision(const Collider& other){
+		SphereCollider(float radius, glm::vec3 center) : radius(radius), Collider(center){}
+
+		bool checkCollision(const Collider& other) const{
 			return other.checkCollision(*this);
 		}
-		bool checkCollision(const SphereCollider& other){
+		bool checkCollision(const SphereCollider& other) const{
 			return collision_sphere_sphere(*this, other);
 		}
-		bool checkCollision(const AABBCollider& other){
+		bool checkCollision(const AABBCollider& other) const{
 			return collision_sphere_aabb(*this, other);
 		}
 	};
