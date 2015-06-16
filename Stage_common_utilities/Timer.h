@@ -23,7 +23,7 @@ namespace stage_common{
 		Käytännössa sama kuin stop(); start();
 		*/
 		void tick();
-		/** Palauttaa tiedon siitä, kuinka paljon aikaa ajastin on olemassaolonsa aikana mitannut
+		/** Palauttaa tiedon siitä, kuinka paljon aikaa ajastin on olemassaolonsa aikana mitannut millisekunteina
 		@returns	Ajastimen mittaama kokonaisaika (viimeisen stop() tai tick() -kutsun kohdalla)
 		*/
 		double totalTime(){ return totalms; }
@@ -31,11 +31,11 @@ namespace stage_common{
 		@returns	Kuinka monta stop() tai tick() -kutsua ajastin on käsitellyt
 		*/
 		unsigned int totalTicks(){ return ticks; }
-		/** Palauttaa keskimäärin yhteen mittausväliin kuluneen ajan
+		/** Palauttaa keskimäärin yhteen mittausväliin kuluneen ajan millisekunteina
 		@returns	Ajastimen kokonaisaika jaettuna mittauspisteiden määrällä
 		*/
 		double averageTime(){ return (totalms / ticks); }
-		/** Palauttaa edellisen mittausvälin pituuden
+		/** Palauttaa edellisen mittausvälin pituuden millisekunteina
 		@returns	Edellisen mittausvälin pituus
 		*/
 		double lastTickTime(){ return lastTick; }

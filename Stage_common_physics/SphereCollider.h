@@ -19,10 +19,10 @@ namespace stage_common{
 			return other.checkCollision(*this);
 		}
 		bool checkCollision(const SphereCollider& other) const{
-			return collision_sphere_sphere(*this, other);
+			return Collisions::collision_sphere_sphere(*this, other);
 		}
 		bool checkCollision(const AABBCollider& other) const{
-			return collision_sphere_aabb(*this, other);
+			return Collisions::collision_sphere_aabb(*this, other);
 		}
 	};
 }
