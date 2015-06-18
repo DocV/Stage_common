@@ -17,6 +17,14 @@ namespace stage_common{
 		virtual bool checkCollision(const Collider& other) const = 0;
 		virtual bool checkCollision(const SphereCollider& other) const = 0;
 		virtual bool checkCollision(const AABBCollider& other) const = 0;
+
+		virtual glm::vec3 getCollisionNormal(const Collider& other, const glm::vec3& v) const = 0;
+		virtual float minX() const = 0;
+		virtual float minY() const = 0;
+		virtual float minZ() const = 0;
+		virtual float maxX() const = 0;
+		virtual float maxY() const = 0;
+		virtual float maxZ() const = 0;
 	protected:
 		glm::mat4 transform;
 	};

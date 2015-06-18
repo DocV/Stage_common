@@ -27,7 +27,7 @@ bool Collisions::collision_sphere_aabb(const SphereCollider& a, const AABBCollid
 		}
 	}
 
-	return (squaredDistance > a.radius);
+	return (squaredDistance <= a.radius * a.radius);
 }
 bool Collisions::collision_aabb_aabb(const AABBCollider& a, const AABBCollider& b){
 	return
@@ -44,26 +44,12 @@ void Collisions::collisionVelocityChange(glm::vec3& v1, float m1, glm::vec3& v2,
 }
 
 
-void Collisions::backOff(Collider& mover, glm::vec3& velocity, const Collider& hit, unsigned int resolution){
+void Collisions::backOff(Collider& mover, glm::vec3& velocity, const Collider& hit){
 	while (mover.checkCollision(hit)){
 		mover.center = mover.center - velocity;
 	}
+}
 
-	/*if (!mover.checkCollision(hit)){
-		return;
-	}
-	
-	/*glm::vec3 start = mover.center - velocity;
-	glm::vec3 end = mover.center;
-	for (unsigned int i = 0; i < resolution; i++){
-		glm::vec3 midpoint = (start + end) / 2.0f;
-		mover.center = midpoint;
-		if (mover.checkCollision(hit)){
-			end = midpoint;
-		}
-		else {
-			start = midpoint;
-		}
-	}
-	mover.center = start;*/
+glm::vec3 Collisions::reflect(glm::vec3& v, glm::vec3 normal){
+	return (-2 * (glm::dot(v, normal)) * normal + v);
 }

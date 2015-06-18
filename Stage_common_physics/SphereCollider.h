@@ -24,6 +24,29 @@ namespace stage_common{
 		bool checkCollision(const AABBCollider& other) const{
 			return Collisions::collision_sphere_aabb(*this, other);
 		}
+
+		glm::vec3 getCollisionNormal(const Collider& other, const glm::vec3& v) const{
+			return glm::normalize(other.center - v - center);
+		}
+
+		virtual float minX() const{
+			return center.x - radius;
+		}
+		virtual float minY() const{
+			return center.y - radius;
+		}
+		virtual float minZ() const{
+			return center.z - radius;
+		}
+		virtual float maxX() const{
+			return center.x + radius;
+		}
+		virtual float maxY() const{
+			return center.y + radius;
+		}
+		virtual float maxZ() const{
+			return center.z + radius;
+		}
 	};
 }
 

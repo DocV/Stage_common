@@ -12,8 +12,9 @@ namespace stage_common{
 		static bool collision_sphere_sphere(const SphereCollider& a, const SphereCollider& b);
 		static bool collision_sphere_aabb(const SphereCollider& a, const AABBCollider& b);
 		static bool collision_aabb_aabb(const AABBCollider& a, const AABBCollider& b);
-		static void backOff(Collider& mover, glm::vec3& velocity, const Collider& hit, unsigned int resolution);
+		static void backOff(Collider& mover, glm::vec3& velocity, const Collider& hit);
 		static void collisionVelocityChange(glm::vec3& v1, float m1, glm::vec3& v2, float m2);
+		static glm::vec3 reflect(glm::vec3& v, glm::vec3 normal);
 	};
 	
 }
