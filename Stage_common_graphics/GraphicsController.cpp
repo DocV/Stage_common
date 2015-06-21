@@ -1,6 +1,7 @@
 ﻿#include "stdafx.h"
 #include "GraphicsController.h"
 #include <iostream>
+#include <Input.h>
 
 using namespace stage_common;
 
@@ -33,6 +34,8 @@ GraphicsController::GraphicsController(std::string& windowName, int xres, int yr
 		abort();
 	}	
 
+	input = new Input(window);
+
 	//Tehdään OpenGL-operaatiot tässä ikkunassa
 	glfwMakeContextCurrent(window);
 	//vsync
@@ -60,6 +63,7 @@ GraphicsController::GraphicsController(std::string& windowName, int xres, int yr
 GraphicsController::~GraphicsController(){
 	//std::cout << "gc stopping\n";
 	globalController = nullptr;
+	delete input;
 	glfwDestroyWindow(window);
 	glfwTerminate();
 }

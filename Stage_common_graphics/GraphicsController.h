@@ -8,6 +8,7 @@
 #include "Camera.h"
 
 namespace stage_common{
+	class Input;
 	/** Luokka, joka toimii rajapintana pelimoottorin ja OpenGL:n välillä.
 	Initialisoi OpenGL:n ja grafiikka-apukirjastot ja siirtää dataa moottorilta näytönohjaimelle.
 	*/
@@ -59,6 +60,8 @@ namespace stage_common{
 		/** Osoitin globaaliin GraphicsController-singletoniin
 		*/
 		static GraphicsController* globalController;
+
+		Input* input;
 
 		/** True, jos ohjelman suoritus tulisi pysäyttää
 		*/
