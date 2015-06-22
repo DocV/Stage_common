@@ -5,19 +5,20 @@
 #include <GLFW\glfw3.h>
 #include <list>
 #include <unordered_map>
+#include <iostream>
 
 namespace stage_common{
 	class Input{
 		friend class GraphicsController;
 	public:
-		void update(bool resetMouse){
+		void update(bool rm){
 			for (int i = 0; i < keys.size(); i++){
 				lastInputs[keys[i]] = (glfwGetKey(window, keys[i]) == GLFW_PRESS);
 			}
 			glfwGetCursorPos(window, &cursorx, &cursory);
 			glfwGetWindowSize(window, &xres, &yres);
-			if (resetMouse){				
-				glfwSetCursorPos(window, xres / 2, yres / 2);
+			if (rm){				
+				resetMouse();
 			}
 		}
 		void registerKey(int key){
@@ -31,15 +32,19 @@ namespace stage_common{
 		}
 
 		double getCursorX(){
-			return cursorx / xres;
+			return cursorx / (double)xres;
 		}
 
 		double getCursorY(){
-			return cursory / yres;
+			return cursory / (double)yres;
 		}
 
 		static Input& getSingleton(){
 			return *singleton;
+		}
+
+		void resetMouse(){
+			glfwSetCursorPos(window, xres / 2, yres / 2);
 		}
 	private:
 		Input(GLFWwindow* window) : window(window){
@@ -52,8 +57,8 @@ namespace stage_common{
 		GLFWwindow* window;
 		std::vector<int> keys;
 		std::unordered_map<int, bool> lastInputs;
-		double cursorx, cursory;
-		int xres, yres;
+		double cursorx = 1, cursory = 1;
+		int xres = 2, yres = 2;
 	};
 }
 
