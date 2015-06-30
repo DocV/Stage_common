@@ -14,6 +14,17 @@ namespace stage_common{
 		float radius;
 
 		SphereCollider(float radius, glm::vec3 center) : radius(radius), Collider(center){}
+		SphereCollider(const SphereCollider& other) : radius(other.radius), Collider(other.center){}
+		SphereCollider& operator= (const SphereCollider& other){
+			this->center = other.center;
+			this->radius = other.radius;
+			return *this;
+		}
+
+		Collider* copy() const{
+			Collider* ret = new SphereCollider(*this);
+			return ret;
+		}
 
 		bool checkCollision(const Collider& other) const{
 			return other.checkCollision(*this);

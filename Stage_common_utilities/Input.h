@@ -49,6 +49,7 @@ namespace stage_common{
 	private:
 		Input(GLFWwindow* window) : window(window){
 			singleton = this;
+			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 		}
 		~Input(){
 			if (singleton == this) singleton = nullptr;

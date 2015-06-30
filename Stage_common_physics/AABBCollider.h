@@ -14,6 +14,18 @@ namespace stage_common{
 		glm::vec3 size;
 
 		AABBCollider(glm::vec3 size, glm::vec3 center) : size(size), Collider(center){}
+		AABBCollider(const AABBCollider& other) : size(other.size), Collider(other.center){}
+		AABBCollider& operator= (const AABBCollider& other){
+			this->center = other.center;
+			this->size = other.size;
+			return *this;
+		}
+
+		Collider* copy() const{
+			Collider* ret = new AABBCollider(*this);
+			return ret;
+		}
+
 		bool checkCollision(const Collider& other) const{
 			return other.checkCollision(*this);
 		}

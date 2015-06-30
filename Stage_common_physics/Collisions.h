@@ -6,6 +6,7 @@
 namespace stage_common{
 	class SphereCollider;
 	class AABBCollider;
+	class Collider;
 
 	class Collisions{
 	public:
