@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "Collider.h"
 #include "Collisions.h"
 #include "SphereCollider.h"
@@ -30,6 +30,7 @@ bool Collisions::collision_sphere_aabb(const SphereCollider& a, const AABBCollid
 	return (squaredDistance <= a.radius * a.radius);
 }
 bool Collisions::collision_aabb_aabb(const AABBCollider& a, const AABBCollider& b){
+	//Ovatko keskikohdat lähenpänä kuin laatikoiden koko?
 	return
 		glm::abs(a.center.x - b.center.x) < (a.size.x + b.size.x) &&
 		glm::abs(a.center.y - b.center.y) < (a.size.y + b.size.y) &&
@@ -42,7 +43,6 @@ void Collisions::collisionVelocityChange(glm::vec3& v1, float m1, glm::vec3& v2,
 	v1 = res1;
 	v2 = res2;
 }
-
 
 void Collisions::backOff(Collider& mover, glm::vec3& velocity, const Collider& hit){
 	while (mover.checkCollision(hit)){

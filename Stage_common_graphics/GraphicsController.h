@@ -20,6 +20,7 @@ namespace stage_common{
 		@param yres			Ikkunan pystyresoluutio
 		*/
 		GraphicsController(std::string& windowName, int xres, int yres);
+
 		/** Sammuttaa pelimoottorin grafiikkakomponentin, sulkee ikkunan ja sammuttaa grafiikka-apukirjastot.
 		*/
 		~GraphicsController();
@@ -43,10 +44,12 @@ namespace stage_common{
 			}
 			drawCount++;
 		}
+
 		/** Piirtää ruudulle kaikki ne 3D-mallit, jotka on queue-metodilla tilattu pirrettäväksi edellisen draw-kutsun jälkeen.
 		@param cam	Viite kameraolioon, jonka perspektiivistä mallit piirretään
 		*/
 		void draw(const Camera& cam);
+
 		/** Kertoo, onko käyttäjä pyytänyt ohjelmaa pysähtymään.
 		@returns	True, jos ohjelman suoritus tulisi pysäyttää
 		*/
@@ -61,20 +64,26 @@ namespace stage_common{
 		*/
 		static GraphicsController* globalController;
 
+		/** Osoitin olioon, joka pitää kirjaa nykyisen ruudunpäivityksen aikana luetuista syötteistä
+		*/
 		Input* input;
 
 		/** True, jos ohjelman suoritus tulisi pysäyttää
 		*/
 		bool stopLoop = false;	
+
 		/** Osoitin pelin ikkuna-olioon
 		*/
 		GLFWwindow* window;
+
 		/** Lista seuraavan ruudunpäivityksen aikana piirrettävistä 3D-malleista
 		*/
 		std::vector<const Model*> models;
+
 		/** Lista sijainneista, joihin seuraavan ruudunpäivityksen aikana piirretään 3D-malli
 		*/
 		std::vector<const glm::mat4> positions;
+
 		/** Seuraavan ruudunpäivityksen aikana piirrettävien 3D-mallien lukumäärä
 		*/
 		unsigned int drawCount = 0;

@@ -34,6 +34,7 @@ GraphicsController::GraphicsController(std::string& windowName, int xres, int yr
 		abort();
 	}	
 
+	//Luodaan käyttäjän syötteet lukeva olio
 	input = new Input(window);
 
 	//Tehdään OpenGL-operaatiot tässä ikkunassa
