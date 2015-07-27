@@ -43,7 +43,7 @@
     <IncludePath>D:\Libraries\New folder\Visual Studio 2013\Projects\Stage_common\Stage_common_utilities;D:\glm\glm;D:\glew\glew-1.12.0\include;D:\glfw\glfw-3.1.bin.WIN32\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>D:\glm\glm;D:\glew\glew-1.12.0\include;D:\glfw\glfw-3.1.bin.WIN32\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Libraries\New folder\Visual Studio 2013\Projects\Stage_common\Stage_common_utilities;D:\glm\glm;D:\glew\glew-1.12.0\include;D:\glfw\glfw-3.1.bin.WIN32\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
