@@ -10,7 +10,7 @@
 namespace stage_common{
 	class Input;
 	/** Luokka, joka toimii rajapintana pelimoottorin ja OpenGL:n välillä.
-	Initialisoi OpenGL:n ja grafiikka-apukirjastot ja siirtää dataa moottorilta näytönohjaimelle.
+	Käynnistää OpenGL:n ja grafiikka-apukirjastot ja siirtää dataa moottorilta näytönohjaimelle.
 	*/
 	class GraphicsController{
 	public:
