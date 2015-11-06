@@ -2,6 +2,7 @@
 #define COLLISIONS_H
 
 #include "stdafx.h"
+#include <glm\glm.hpp>
 
 namespace stage_common{
 	class SphereCollider;
