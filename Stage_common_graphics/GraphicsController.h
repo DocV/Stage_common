@@ -10,8 +10,7 @@
 namespace stage_common{
 	class Input;
 	/** Luokka, joka toimii rajapintana pelimoottorin ja OpenGL:n välillä.
-	Käynnistää OpenGL:n ja grafiikka-apukirjastot ja siirtää dataa moottorilta näytönohjaimelle.
-	*/
+	Käynnistää OpenGL:n ja grafiikka-apukirjastot ja siirtää dataa moottorilta näytönohjaimelle.*/
 	class GraphicsController{
 	public:
 		/** Käynnistää pelimoottorin grafiikkakomponentin ja luo uuden ikkunan.
@@ -20,11 +19,8 @@ namespace stage_common{
 		@param yres			Ikkunan pystyresoluutio
 		*/
 		GraphicsController(std::string& windowName, int xres, int yres);
-
-		/** Sammuttaa pelimoottorin grafiikkakomponentin, sulkee ikkunan ja sammuttaa grafiikka-apukirjastot.
-		*/
+		/** Sammuttaa pelimoottorin grafiikkakomponentin, sulkee ikkunan ja sammuttaa grafiikka-apukirjastot.*/
 		~GraphicsController();
-
 		/** Määrittää 3D-mallin piirrettäväksi seuraavassa ruudunpäivityksessä.
 		@param model	Osoitin piirrettävään 3D-malliin
 		@param position	Matriisi, joka ilmaisee mihin, miten päin ja missä mittakaavassa malli piirretään
@@ -44,52 +40,33 @@ namespace stage_common{
 			}
 			drawCount++;
 		}
-
 		/** Piirtää ruudulle kaikki ne 3D-mallit, jotka on queue-metodilla tilattu pirrettäväksi edellisen draw-kutsun jälkeen.
 		@param cam	Viite kameraolioon, jonka perspektiivistä mallit piirretään
 		*/
 		void draw(const Camera& cam);
-
 		/** Kertoo, onko käyttäjä pyytänyt ohjelmaa pysähtymään.
 		@returns	True, jos ohjelman suoritus tulisi pysäyttää
 		*/
 		bool shouldStop(){ return stopLoop; }
-
 		/** Hakee globaalin GraphicsController-singletonin, jonka kautta kaikki piirtokutsut tulisi reitittää
 		@returns	Osoitin GraphicsController-singletoniin
 		*/
 		static GraphicsController* getGlobalController();
 	private:
-		/** Osoitin globaaliin GraphicsController-singletoniin
-		*/
+		/** Osoitin globaaliin GraphicsController-singletoniin*/
 		static GraphicsController* globalController;
-
-		/** Osoitin olioon, joka pitää kirjaa nykyisen ruudunpäivityksen aikana luetuista syötteistä
-		*/
-		Input* input;
-
-		/** True, jos ohjelman suoritus tulisi pysäyttää
-		*/
-		bool stopLoop = false;	
-
-		/** Osoitin pelin ikkuna-olioon
-		*/
+		/** Osoitin olioon, joka pitää kirjaa nykyisen ruudunpäivityksen aikana luetuista syötteistä*/
+		Input* input;		
+		/** Osoitin pelin ikkuna-olioon	*/
 		GLFWwindow* window;
-
-		/** Lista seuraavan ruudunpäivityksen aikana piirrettävistä 3D-malleista
-		*/
+		/** True, jos ohjelman suoritus tulisi pysäyttää*/
+		bool stopLoop = false;	
+		/** Lista seuraavan ruudunpäivityksen aikana piirrettävistä 3D-malleista*/
 		std::vector<const Model*> models;
-
-		/** Lista sijainneista, joihin seuraavan ruudunpäivityksen aikana piirretään 3D-malli
-		*/
+		/** Lista sijainneista, joihin seuraavan ruudunpäivityksen aikana piirretään 3D-malli*/
 		std::vector<const glm::mat4> positions;
-
-		/** Seuraavan ruudunpäivityksen aikana piirrettävien 3D-mallien lukumäärä
-		*/
+		/** Seuraavan ruudunpäivityksen aikana piirrettävien 3D-mallien lukumäärä*/
 		unsigned int drawCount = 0;
-	};
-
-	
+	};	
 }
-
 #endif

@@ -7,10 +7,8 @@
 
 namespace stage_common{
 	class Shader;
-
 	/** Luokka, joka sisältää tiedot 3D-mallin piirtämistä varten.
-	Jokaista eri 3D-mallia kohden tulisi olla tasan yksi Model-olio.
-	*/
+	Jokaista eri 3D-mallia kohden tulisi olla tasan yksi Model-olio.*/
 	class Model{
 	public:
 		/** Luo uuden 3D-mallin pelimoottorin muistiin.
@@ -37,19 +35,14 @@ namespace stage_common{
 		*/
 		void draw(const Camera& cam, glm::mat4& modelMatrix) const;
 	private:
-		/** Mallin verteksien sijaintia kuvaava GLuint
-		*/
+		/** Mallin verteksien sijaintia kuvaava GLuint*/
 		GLuint vertices;
-		/** Mallin värien sijaintia kuvaava GLuint
-		*/
+		/** Mallin värien sijaintia kuvaava GLuint*/
 		GLuint colors;
-		/** Osoitin sävytinolioon, jonka sävytinohjelmalla tämä malli piirretään
-		*/
+		/** Osoitin sävytinolioon, jonka sävytinohjelmalla tämä malli piirretään*/
 		Shader* shader;
-		/** Mallin verteksien lukumäärä
-		*/
+		/** Mallin verteksien lukumäärä*/
 		unsigned int vertexCount;
 	};
 }
-
 #endif

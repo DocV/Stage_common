@@ -9,8 +9,7 @@ namespace stage_common{
 	*/
 	class SimpleShader : public Shader {
 	public:
-		/** Lataa sävytinohjelman
-		*/
+		/** Lataa sävytinohjelman*/
 		SimpleShader();
 		/** Metodi, joka piirtää mallin ruudulle tämän sävytinohjelman avulla
 		@param model		Piirrettävä 3D-malli
@@ -19,10 +18,8 @@ namespace stage_common{
 		*/
 		void draw(const Model& model, const Camera& cam, glm::mat4& modelMatrix);
 	private:
-		/** Sävytinohjelman käyttämän muuttujan osoite
-		*/
+		/** Sävytinohjelman käyttämän muuttujan osoite*/
 		GLuint matrixID;
 	};
 }
-
 #endif

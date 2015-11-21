@@ -80,7 +80,6 @@ GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_pat
 
 	return ProgramID;
 }
-
 stage_common::Shader::Shader(const char* vertexShader, const char* fragmentShader){
 	program = LoadShaders(vertexShader, fragmentShader);
 }

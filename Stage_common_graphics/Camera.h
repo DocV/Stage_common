@@ -3,15 +3,11 @@
 
 #include "stdafx.h"
 
-
 namespace stage_common{
-	/**
-	Luokka, joka sisältää grafiikkamoottorin kameran mallintamiseen vaadittavat tiedot.
-	*/
+	/**	Luokka, joka sisältää grafiikkamoottorin kameran mallintamiseen vaadittavat tiedot.*/
 	class Camera{
 	public:
-		/** Luo kameran oletusasetuksilla (45.0 asteen fov, kuvasuhde 4:3, piirtoetäisyys 0.1-100, suunnattu origoon)
-		*/
+		/** Luo kameran oletusasetuksilla (45.0 asteen fov, kuvasuhde 4:3, piirtoetäisyys 0.1-100, suunnattu origoon)*/
 		Camera();
 		/** Luo kameran luojan määrittelemillä asetuksilla
 		@param initialProjection	Kameran projektiomatriisi (fov, kuvasuhde, piirtoetäisyys) simulaation alussa 
@@ -21,11 +17,11 @@ namespace stage_common{
 		/** Palauttaa kameran nykyisen projektiomatriisin
 		@returns	Kameran projektiomatriisi
 		*/
-		glm::mat4 getProjectionMatrix() const{ return projection; }
+		glm::mat4 getProjectionMatrix() const { return projection; }
 		/** Palauttaa kameran nykyisen näkymämatriisin
 		@returns	Kameran näkymämatriisi
 		*/
-		glm::mat4 getViewMatrix() const{ return view; }
+		glm::mat4 getViewMatrix() const { return view; }
 		/** Asettaa kameralle uuden projektiomatriisin
 		@param newProjection	Uusi projektiomatriisi
 		*/
@@ -35,13 +31,10 @@ namespace stage_common{
 		*/
 		void setViewMatrix(const glm::mat4& newView);
 	private:
-		/** Kameran projektiomatriisi (fov, kuvasuhde, piirtoetäisyys)
-		*/
+		/** Kameran projektiomatriisi (fov, kuvasuhde, piirtoetäisyys)*/
 		glm::mat4 projection;
-		/** Kameran näkymämatriisi (mihin kamera on suunnattu)
-		*/
+		/** Kameran näkymämatriisi (mihin kamera on suunnattu)*/
 		glm::mat4 view;
 	};
 }
-
 #endif

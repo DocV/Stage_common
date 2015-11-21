@@ -6,8 +6,7 @@
 #include <string>
 
 namespace stage_common{
-	/**Luokka, joka tarjoaa yksinkertaisen lokitoiminnon.
-	*/
+	/**Luokka, joka tarjoaa yksinkertaisen lokitoiminnon.*/
 	class Logger{
 	public:
 		/** Luo uuden lokiolion
@@ -16,14 +15,12 @@ namespace stage_common{
 		*/
 		Logger(std::ostream& standard, std::ostream& error) : stdLog(standard), errLog(error){
 		}
-
 		/** Kirjoittaa lokiin normaalin viestin
 		@param msg	Lokiin kirjoitettava viesti
 		*/
 		void Log(std::string msg){
 			stdLog << msg << std::endl;
 		}
-
 		/** Kirjoittaa lokiin virheilmoituksen
 		@param msg	Lokiin kirjoitettava viesti
 		*/
@@ -31,11 +28,9 @@ namespace stage_common{
 			errLog << msg << std::endl;
 		}
 	private:
-		/**Minne normaalit lokiviestit kirjoitetaan
-		*/
+		/**Kanava, jonne kirjoitetaan normaalit lokiviestit*/
 		std::ostream& stdLog;
-		/**Minne virheilmoitukset kirjoitetaan
-		*/
+		/**Kanava, jonne kirjoitetaan virheilmoitukset */
 		std::ostream& errLog;
 	};
 }

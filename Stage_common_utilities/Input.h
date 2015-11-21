@@ -8,8 +8,7 @@
 #include <iostream>
 
 namespace stage_common{
-	/** Käyttäjän syötteitä lukeva luokka
-	*/
+	/** Käyttäjän syötteitä lukeva luokka*/
 	class Input{
 		//Syötteiden lukemista varten tarvitaan osoitin peli-ikkunaan
 		friend class GraphicsController;
@@ -30,7 +29,6 @@ namespace stage_common{
 				resetMouse();
 			}
 		}
-
 		/** Pyytää input-oliota tarkkailemaan halutun näppäimen tilaa
 		@param key	Tarkkailtavan näppäimen GLFW-tunnus
 		*/
@@ -40,7 +38,6 @@ namespace stage_common{
 				lastInputs.emplace(key, false);
 			}
 		}
-
 		/** Kysyy, oliko tietty näppäin pohjassa tämän ruudunpäivityksen alussa
 		@param key	Näppäimen GLFW-tunnus
 		@returns	true, jos näppäin oli pohjassa
@@ -48,28 +45,24 @@ namespace stage_common{
 		bool getKeyDown(int key){
 			return lastInputs[key];
 		}
-
 		/** Hakee hiiriosoittimen x-koordinaatin suhteessa peli-ikkunaan
 		@returns	Arvo väliltä 0 (ruudun vasen reuna) - 1 (ruudun oikea reuna)
 		*/
 		double getCursorX(){
 			return cursorx / (double)xres;
 		}
-
 		/** Hakee hiiriosoittimen y-koordinaatin suhteessa peli-ikkunaan
 		@returns	Arvo väliltä 0 (ruudun yläreuna) - 1 (ruudun alareuna)
 		*/
 		double getCursorY(){
 			return cursory / (double)yres;
 		}
-
 		/** Hakee osoittimen globaaliin Input-singletoniin
 		@returns	Globaalin Input-olion osoite
 		*/
 		static Input& getSingleton(){
 			return *singleton;
 		}
-
 		/** Asettaa hiiren keskelle peli-ikkunaa
 		*/
 		void resetMouse(){
@@ -84,37 +77,22 @@ namespace stage_common{
 			//Piilotetaan hiiri, kun se on peli-ikkunan päällä
 			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 		}
-
-		/** Tuhoaa Input-olion
-		*/
+		/** Tuhoaa Input-olion*/
 		~Input(){
 			if (singleton == this) singleton = nullptr;
 		}
-
-		/** Globaalin syötteidenhallintaolion osoite
-		*/
-		static Input* singleton;
-		
-		/** Peli-ikkunan osoite
-		*/
+		/** Globaalin syötteidenhallintaolion osoite*/
+		static Input* singleton;		
+		/** Peli-ikkunan osoite*/
 		GLFWwindow* window;
-
-		/** Lista niistä näppäimistä, joiden tilaa tarkkaillaan
-		*/
+		/** Lista niistä näppäimistä, joiden tilaa tarkkaillaan*/
 		std::vector<int> keys;
-
-		/** Lista tarkkailtavien näppäimien tiloista ruudunpäivityksen alussa
-		*/
+		/** Lista tarkkailtavien näppäimien tiloista ruudunpäivityksen alussa*/
 		std::unordered_map<int, bool> lastInputs;
-
-		/** Hiiriosoittimen x- ja y-koordinaatit ruudunpäivityksen alussa
-		*/
+		/** Hiiriosoittimen x- ja y-koordinaatit ruudunpäivityksen alussa*/
 		double cursorx = 1, cursory = 1;
-
-		/** Peli-ikkunan vaaka- ja pystyresoluutio
-		*/
+		/** Peli-ikkunan vaaka- ja pystyresoluutio*/
 		int xres = 2, yres = 2;
 	};
 }
-
 #endif

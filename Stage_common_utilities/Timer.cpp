@@ -8,7 +8,6 @@ typedef std::chrono::high_resolution_clock hrclock;
 void Timer::start(){
 	lastStart = hrclock::now();
 }
-
 void Timer::stop(){
 	clock_time end = hrclock::now();
 	std::chrono::duration<double, std::milli> duration = end - lastStart;
@@ -16,7 +15,6 @@ void Timer::stop(){
 	lastTick = duration.count();
 	ticks++;
 }
-
 void Timer::tick(){
 	stop();
 	start();

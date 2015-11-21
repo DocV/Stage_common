@@ -13,15 +13,12 @@ namespace stage_common{
 	*/
 	class Timer{
 	public:
-		/** Käynnistää ajastimen
-		*/
+		/** Käynnistää ajastimen*/
 		void start();
-		/** Mittaa, kuinka paljon aikaa on kulunut edellisestä start()-kutsusta
-		*/
+		/** Mittaa, kuinka paljon aikaa on kulunut edellisestä start()-kutsusta*/
 		void stop();
 		/** Mittaa, kuinka kauan on kulunut edellisestä start()-kutsusta ja käynnistää ajastimen uudestaan
-		Käytännössa sama kuin stop(); start();
-		*/
+		Käytännössa sama kuin stop(); start();*/
 		void tick();
 		/** Palauttaa tiedon siitä, kuinka paljon aikaa ajastin on olemassaolonsa aikana mitannut millisekunteina
 		@returns	Ajastimen mittaama kokonaisaika (viimeisen stop() tai tick() -kutsun kohdalla)
@@ -39,21 +36,15 @@ namespace stage_common{
 		@returns	Edellisen mittausvälin pituus
 		*/
 		double lastTickTime(){ return lastTick; }
-
 	private:
-		/** Ajastimen mittaama kokonaisaika
-		*/
+		/** Ajastimen mittaama kokonaisaika*/
 		double totalms = 0;
-		/** Edellisen mittausvälin pituus
-		*/
+		/** Edellisen mittausvälin pituus*/
 		double lastTick = 0;
-		/** Mittausvälien kokonaismäärä
-		*/
+		/** Mittausvälien kokonaismäärä*/
 		unsigned int ticks = 0;
-		/** Nykyisen mittausvälin käynnistysaika
-		*/
+		/** Nykyisen mittausvälin käynnistysaika*/
 		clock_time lastStart;
 	};
 }
-
 #endif
