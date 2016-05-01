@@ -18,7 +18,7 @@ namespace stage_common{
 		*/
 		void update(bool rm){
 			//Haetaan kaikkien rekisteröityjen näppäinten tila
-			for (int i = 0; i < keys.size(); i++){
+			for (unsigned int i = 0; i < keys.size(); i++){
 				lastInputs[keys[i]] = (glfwGetKey(window, keys[i]) == GLFW_PRESS);
 			}
 			//Haetaan hiiriosoittimen sijainti ruudulla
